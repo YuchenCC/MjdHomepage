@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="z-hans">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <script>
+        let scale = 1 / window.devicePixelRatio
+        let view = `<meta name="viewport" content="initial-scale=${scale},maximum-scale=${scale},minimum-scale=${scale}">`
+        document.write(view)
+        let width = document.documentElement.clientWidth
+        //console.log(width)
+        var css = ` html{
+                    font-size: ${width / 10}px;
+                    }`
+        document.write(`<style>${css}</style>`)
+    </script>
+</head>
+
+<body>
+    <section id="searchBar">
+        <div class="search">
+            <img class="jdlogo" src='img\JD.png'></img>
+            <img class='searchLogo' src='img\search.png'></img>
+            <input type="text" placeholder='APP下拉领红包哟！鹿晗与联想燃爆618！'>
+        </div>
+    
+        <button>登录</button>
+    </section>
+    <section id="selectBar">
+        <img src="img\a-recommend.png" alt="">
+        <img src="img\n-catergry.png" alt="">
+        <img src="img\n-find.png" alt="">
+        <img src="img\n-cart.png" alt="">
+        <img src="img\n-me.png" alt="">
+    </section>
+    <section id="topSlides">
+        <div class="wrapper">
+            <ul>
+                <li><img src="img/slide1.jpg" alt=""></li>
+                <li><img src="img/slide2.jpg" alt=""></li>
+                <li><img src="img/slide3.jpg" alt=""></li>
+                <li><img src="img/slide4.jpg" alt=""></li>
+                <li><img src="img/slide5.jpg" alt=""></li>
+                <li><img src="img/slide6.jpg" alt=""></li>
+                <li><img src="img/slide7.jpg" alt=""></li>
+            </ul>
+        </div>
+        <div class="choose">
+            <ul>
+                <li class='activeBut'></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+          </ul>
+        </div>
+    </section>
+    <section id="listBanner">
+        <div class="banner">
+            <img src="img\banner1.jpg" alt="">
+            <a href="#"></a>
+        </div>
+        <div class="list">
+            <ul>
+                <li><a href="#"><img src="img\list1.png" alt=""><span>京东超市</span></a></li>
+                <li><a href="#"><img src="img\list2.png" alt=""><span>全球购</span></a></li>
+                <li><a href="#"><img src="img\list3.png" alt=""><span>服装城</span></a></li>
+                <li><a href="#"><img src="img\list4.png" alt=""><span>生鲜</span></a></li>
+                <li><a href="#"><img src="img\list5.png" alt=""><span>京东到家</span></a></li>
+                <li><a href="#"><img src="img\list6.png" alt=""><span>充值缴费</span></a></li>
+                <li><a href="#"><img src="img\list7.png" alt=""><span>领京豆</span></a></li>
+                <li><a href="#"><img src="img\list8.png" alt=""><span>领券</span></a></li>
+                <li><a href="#"><img src="img\list9.png" alt=""><span>惠赚钱</span></a></li>
+                <li><a href="#"><img src="img\list10.png" alt=""><span>物流查询</span></a></li>
+            </ul>
+        </div>
+    </section>
+    <section id="adBanner">
+        <a class="banner">
+            <img src="img\adBanner.jpg" alt="">
+        </a>
+    </section>
+    <section id="flashSale">
+        <div class="title">
+            <img src="img\kill.png" alt="">
+            <span class='time'>
+                00点场
+            </span>
+            <div class='countdown'>
+                <div>00</div>:<div>00</div>:<div>00</div>
+            </div>
+            <span class='more'>数码618超值抢<img src="img\button.png" alt=""></span>
+             
+        </div>
+        <div class="showlist">
+            <ul>
+                <li>
+                    <img src="" alt="">
+                    <p><span></span><span></span></p>
+                </li>
+                <li>
+                    <img src="" alt="">
+                    <p><span></span><span></span></p>
+                </li>
+                <li>
+                    <img src="" alt="">
+                    <p><span></span><span></span></p>
+                </li>
+                <li>
+                    <img src="" alt="">
+                    <p><span></span><span></span></p>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section id="brandSale">
+
+    </section>
+    <section id="lifeSale">
+
+    </section>
+    <section id="saleSlide">
+
+    </section>
+    <section id="qulitySale">
+
+    </section>
+    <section id="specialSale">
+
+    </section>
+    <section id="couponSlide">
+
+    </section>
+    <section id="shopSale">
+
+    </section>
+    <section id="commend">
+
+    </section>
+    <section id="bottom">
+
+    </section>
+
+
+</body>
+<script src='js/require.js' data-main="js/main"></script>
+
+</html>
