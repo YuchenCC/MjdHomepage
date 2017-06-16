@@ -11,17 +11,16 @@
         let view = `<meta name="viewport" content="initial-scale=${scale},maximum-scale=${scale},minimum-scale=${scale}">`
         document.write(view)
         let width = document.documentElement.clientWidth
-        //console.log(width)
-        let minWidth = 300 * window.devicePixelRatio
         let maxWidth = 640 * window.devicePixelRatio
+        //console.log(width)
+        //let minWidth = 300 * window.devicePixelRatio
         var css = ` html{
                       font-size: ${width / 10}px;
                     }
-                    body{
-                        min-width: 300px;
-                        max-width: ${maxWidth}px
-                    }
-                `
+                    @media (min-width: ${maxWidth}px){
+                     *{display: none}
+                    }`
+                   
         document.write(`<style>${css}</style>`)
 
     </script>
