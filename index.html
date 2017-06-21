@@ -11,16 +11,21 @@
         let view = `<meta name="viewport" content="initial-scale=${scale},maximum-scale=${scale},minimum-scale=${scale}">`
         document.write(view)
         let width = document.documentElement.clientWidth
-        let maxWidth = 640 * window.devicePixelRatio
-        //console.log(width)
-        //let minWidth = 300 * window.devicePixelRatio
+        pixel = Math.floor(window.devicePixelRatio)
+        let maxWidth = 540 * pixel
+        if(maxWidth > width) {
+            maxWidth = width
+        }
         var css = ` html{
-                      font-size: ${width / 10}px;
+                      font-size: ${maxWidth / 10}px;
                     }
-                    @media (min-width: ${maxWidth}px){
-                     *{display: none}
-                    }`
-                   
+                    #container{
+                      max-width: ${maxWidth}PX;
+                    }
+                   `
+        // @media (min-width: ${maxWidth}px){
+        //             *{display: none}
+        //           }           
         document.write(`<style>${css}</style>`)
 
     </script>
@@ -43,117 +48,118 @@
         <img src="img\n-cart.png" alt="">
         <img src="img\n-me.png" alt="">
     </section>
-    <section id="topSlides">
-        <div class="wrapper">
-            <ul>
-                <li><img src="img/slide1.jpg" alt=""></li>
-                <li><img src="img/slide2.jpg" alt=""></li>
-                <li><img src="img/slide3.jpg" alt=""></li>
-                <li><img src="img/slide4.jpg" alt=""></li>
-                <li><img src="img/slide5.jpg" alt=""></li>
-                <li><img src="img/slide6.jpg" alt=""></li>
-                <li><img src="img/slide7.jpg" alt=""></li>
-            </ul>
-        </div>
-        <div class="choose">
-            <ul>
-                <li class='activeBut'></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-          </ul>
-        </div>
-    </section>
-    <section id="listBanner">
-        <div class="banner">
-            <img src="img\banner1.jpg" alt="">
-            <a href="#"></a>
-        </div>
-        <div class="list">
-            <ul>
-                <li><a href="#"><img src="img\list1.png" alt=""><span>京东超市</span></a></li>
-                <li><a href="#"><img src="img\list2.png" alt=""><span>全球购</span></a></li>
-                <li><a href="#"><img src="img\list3.png" alt=""><span>服装城</span></a></li>
-                <li><a href="#"><img src="img\list4.png" alt=""><span>生鲜</span></a></li>
-                <li><a href="#"><img src="img\list5.png" alt=""><span>京东到家</span></a></li>
-                <li><a href="#"><img src="img\list6.png" alt=""><span>充值缴费</span></a></li>
-                <li><a href="#"><img src="img\list7.png" alt=""><span>领京豆</span></a></li>
-                <li><a href="#"><img src="img\list8.png" alt=""><span>领券</span></a></li>
-                <li><a href="#"><img src="img\list9.png" alt=""><span>惠赚钱</span></a></li>
-                <li><a href="#"><img src="img\list10.png" alt=""><span>物流查询</span></a></li>
-            </ul>
-        </div>
-    </section>
-    <section id="adBanner">
-        <a class="banner">
-            <img src="img\adBanner.jpg" alt="">
-        </a>
-    </section>
-    <section id="flashSale">
-        <div class="title">
-            <img src="img\kill.png" alt="">
-            <span class='time'>
-                00点场
-            </span>
-            <div class='countdown'>
-                <div>00</div>:<div>00</div>:<div>00</div>
+    <div id="container">
+        <section id="topSlides">
+            <div class="wrapper">
+                <ul>
+                    <li><img src="img/slide1.jpg" alt=""></li>
+                    <li><img src="img/slide2.jpg" alt=""></li>
+                    <li><img src="img/slide3.jpg" alt=""></li>
+                    <li><img src="img/slide4.jpg" alt=""></li>
+                    <li><img src="img/slide5.jpg" alt=""></li>
+                    <li><img src="img/slide6.jpg" alt=""></li>
+                    <li><img src="img/slide7.jpg" alt=""></li>
+                </ul>
             </div>
-            <span class='more'>数码618超值抢<img src="img\button.png" alt=""></span>
-             
-        </div>
-        <div class="showlist">
-            <ul>
-                <li>
-                    <img src="" alt="">
-                    <p><span></span><span></span></p>
-                </li>
-                <li>
-                    <img src="" alt="">
-                    <p><span></span><span></span></p>
-                </li>
-                <li>
-                    <img src="" alt="">
-                    <p><span></span><span></span></p>
-                </li>
-                <li>
-                    <img src="" alt="">
-                    <p><span></span><span></span></p>
-                </li>
+            <div class="choose">
+                <ul>
+                    <li class='activeBut'></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
             </ul>
-        </div>
-    </section>
-    <section id="brandSale">
+            </div>
+        </section>
+        <section id="listBanner">
+            <div class="banner">
+                <img src="img\banner1.jpg" alt="">
+                <a href="#"></a>
+            </div>
+            <div class="list">
+                <ul>
+                    <li><a href="#"><img src="img\list1.png" alt=""><span>京东超市</span></a></li>
+                    <li><a href="#"><img src="img\list2.png" alt=""><span>全球购</span></a></li>
+                    <li><a href="#"><img src="img\list3.png" alt=""><span>服装城</span></a></li>
+                    <li><a href="#"><img src="img\list4.png" alt=""><span>生鲜</span></a></li>
+                    <li><a href="#"><img src="img\list5.png" alt=""><span>京东到家</span></a></li>
+                    <li><a href="#"><img src="img\list6.png" alt=""><span>充值缴费</span></a></li>
+                    <li><a href="#"><img src="img\list7.png" alt=""><span>领京豆</span></a></li>
+                    <li><a href="#"><img src="img\list8.png" alt=""><span>领券</span></a></li>
+                    <li><a href="#"><img src="img\list9.png" alt=""><span>惠赚钱</span></a></li>
+                    <li><a href="#"><img src="img\list10.png" alt=""><span>物流查询</span></a></li>
+                </ul>
+            </div>
+        </section>
+        <section id="adBanner">
+            <a class="banner">
+                <img src="img\adBanner.jpg" alt="">
+            </a>
+        </section>
+        <section id="flashSale">
+            <div class="title">
+                <img src="img\kill.png" alt="">
+                <span class='time'>
+                    00点场
+                </span>
+                <div class='countdown'>
+                    <div>00</div>:<div>00</div>:<div>00</div>
+                </div>
+                <span class='more'>数码618超值抢<img src="img\button.png" alt=""></span>
+                
+            </div>
+            <div class="showlist">
+                <ul>
+                    <li>
+                        <img src="" alt="">
+                        <p><span></span><span></span></p>
+                    </li>
+                    <li>
+                        <img src="" alt="">
+                        <p><span></span><span></span></p>
+                    </li>
+                    <li>
+                        <img src="" alt="">
+                        <p><span></span><span></span></p>
+                    </li>
+                    <li>
+                        <img src="" alt="">
+                        <p><span></span><span></span></p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section id="brandSale">
 
-    </section>
-    <section id="lifeSale">
+        </section>
+        <section id="lifeSale">
 
-    </section>
-    <section id="saleSlide">
+        </section>
+        <section id="saleSlide">
 
-    </section>
-    <section id="qulitySale">
+        </section>
+        <section id="qulitySale">
 
-    </section>
-    <section id="specialSale">
+        </section>
+        <section id="specialSale">
 
-    </section>
-    <section id="couponSlide">
+        </section>
+        <section id="couponSlide">
 
-    </section>
-    <section id="shopSale">
+        </section>
+        <section id="shopSale">
 
-    </section>
-    <section id="commend">
+        </section>
+        <section id="commend">
 
-    </section>
-    <section id="bottom">
+        </section>
+        <section id="bottom">
 
-    </section>
+        </section>
 
-
+    </div>
 </body>
 <script src='js/require.js' data-main="js/main"></script>
 
