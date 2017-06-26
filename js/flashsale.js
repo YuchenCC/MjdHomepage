@@ -43,11 +43,11 @@ function countdown($time, $countdown) {
     
         
         let $killList = $('.showlist>ul')
-        $killList.on('touchstart', function (e) {
+        $killList.on('touchstart','li',function (e) {
             e.preventDefault()
             let touchStartX = e.touches[0].pageX
             //console.log(e.touches[0])
-            $killList.on('touchmove', function (e) {
+            $killList.on('touchmove','li', function (e) {
                 e.preventDefault()
                 let touchEndX = e.touches[0].pageX
                 let initPosition = 0
@@ -66,7 +66,7 @@ function countdown($time, $countdown) {
                 //console.log(typeof parseInt(initPosition) )
                 let maxwidth = $('.showlist>ul>li').eq(0).width() * -17
                 console.log(maxwidth)
-                let movePosition = (touchEndX - touchStartX)*10
+                let movePosition = (touchEndX - touchStartX)*5
                 //if (movePosition*movePosition < 100)
                 //{ movePosition = 0 }
                 change = movePosition + parseInt(initPosition)
