@@ -28,7 +28,7 @@ function countdown($time, $countdown) {
             $div = $('<div></div>')
             $img = $('<img></img>').attr('src', object.url).appendTo($div)
             $div.appendTo($li)
-            $pAfter = $('<p><span>￥</span></p>').addClass('priceAfter').text(object.priceAfter).appendTo($li)
+            $pAfter = $(`<p><span>￥</span>${object.priceAfter}</p>`).addClass('priceAfter').appendTo($li)
             $span = $('<span></span>').text(object.priceBefore)
             $pBefore = $('<p></p>').addClass('priceBefore').append($span).appendTo($li)
             $li.appendTo($killList)
@@ -64,6 +64,9 @@ function killSlides() {
         console.log(`touchStartX is ${touchStartX}`)
         
     })
+
+    let timeID = setInterval(function(){
+        
     $killList.on('touchmove', function (e) {
         initPosition = initPosition || 0
         e.preventDefault()
@@ -75,15 +78,17 @@ function killSlides() {
         //console.log(`touchEndX is ${touchEndX}`)
         //console.log(typeof parseInt(initPosition) )
         let movePosition = (touchEndX - touchStartX) * window.devicePixelRatio
-        if (movePosition * movePosition < 225)
+        if (movePosition * movePosition < 144)
         { movePosition = 0 }
         change = movePosition + initPosition
         if (change < touchMaxwidth) { change = touchMaxwidth }
         if (change > 0) { change = 0 }
         console.log(change)
         $killList.css('transform', `translateX(${change}px)`)
-        
+        $killList.off( "touchmove")
     })
+    },200)
+
 
 }
 
