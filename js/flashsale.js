@@ -75,8 +75,8 @@ function killSlides() {
         //console.log(`touchEndX is ${touchEndX}`)
         //console.log(typeof parseInt(initPosition) )
         let movePosition = (touchEndX - touchStartX) * window.devicePixelRatio
-        //if (movePosition * movePosition < 100)
-        //{ movePosition = 0 }
+        if (movePosition * movePosition < 225)
+        { movePosition = 0 }
         change = movePosition + initPosition
         if (change < touchMaxwidth) { change = touchMaxwidth }
         if (change > 0) { change = 0 }
