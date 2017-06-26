@@ -42,9 +42,11 @@ function countdown($time, $countdown) {
 +function(){
     let $killList = $('.showlist>ul')
     $killList.on('touchstart', function (e) {
+        e.preventDefault()
         let touchStartX = e.touches[0].pageX
         //console.log(e.touches[0])
         $killList.on('touchmove', function (e) {
+            e.preventDefault()
             let touchEndX = e.touches[0].pageX
             let initPosition = 0
             $killList.css('transition', `0.5 all`)
