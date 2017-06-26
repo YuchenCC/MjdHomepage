@@ -40,38 +40,43 @@ function countdown($time, $countdown) {
 }()
 
 +function(){
-    let $killList = $('.showlist>ul')
-    $killList.on('touchstart', function (e) {
-        e.preventDefault()
-        let touchStartX = e.touches[0].pageX
-        //console.log(e.touches[0])
-        $killList.on('touchmove', function (e) {
+    
+        
+        let $killList = $('.showlist>ul')
+        $killList.on('touchstart', function (e) {
             e.preventDefault()
-            let touchEndX = e.touches[0].pageX
-            let initPosition = 0
-            $killList.css('transition', `0.5 all`)
-            //let change =  touchEndX - touchStartX
-            let kill = $killList.css('transform')
-            let regex = new RegExp("matrix\\(\\s*\\d*,\\s*\\d*,\\s*\\d*,\\s*\\d*,\\s*(.+),.*", "g");
-            if ((match = regex.exec(kill)) != null) {
-                initPosition = match[1]
-                //console.log(match[1])
+            let touchStartX = e.touches[0].pageX
+            //console.log(e.touches[0])
+            $killList.on('touchmove', function (e) {
+                e.preventDefault()
+                let touchEndX = e.touches[0].pageX
+                let initPosition = 0
+                $killList.css('transition', `0.5 all`)
+                //let change =  touchEndX - touchStartX
+                let kill = $killList.css('transform')
+                let regex = new RegExp("matrix\\(\\s*\\d*,\\s*\\d*,\\s*\\d*,\\s*\\d*,\\s*(.+),.*", "g");
+                if ((match = regex.exec(kill)) != null) {
+                    initPosition = match[1]
+                    //console.log(match[1])
 
-            }
-            console.log(`positon is ${initPosition}`)
-            console.log(`touchStartX is ${touchStartX}`)
-            console.log(`touchEndX is ${touchEndX}`)
-            //console.log(typeof parseInt(initPosition) )
-            let movePosition = touchEndX - touchStartX
-            if (movePosition*movePosition < 100)
-            { movePosition = 0 }
-            change = movePosition + parseInt(initPosition)
-            if (change < -3550) { change = -3550 }
-            if (change > 0) { change = 0 }
-            //console.log(change1)
-            $killList.css('transform', `translateX(${change}px)`)
+                }
+                //console.log(`positon is ${initPosition}`)
+                //console.log(`touchStartX is ${touchStartX}`)
+                //console.log(`touchEndX is ${touchEndX}`)
+                //console.log(typeof parseInt(initPosition) )
+                let maxwidth = $('.showlist>ul>li').eq(0).width() * -17
+                console.log(maxwidth)
+                let movePosition = (touchEndX - touchStartX)*10
+                //if (movePosition*movePosition < 100)
+                //{ movePosition = 0 }
+                change = movePosition + parseInt(initPosition)
+                if (change < maxwidth ) { change = maxwidth  }
+                if (change > 0) { change = 0 }
+                //console.log(change1)
+                $killList.css('transform', `translateX(${change}px)`)
+            })
         })
-    })
+    
 }()
 
 
