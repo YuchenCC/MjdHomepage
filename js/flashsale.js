@@ -87,7 +87,7 @@ function killSlides() {
         $killList.css('transform', `translateX(${change}px)`)
         $killList.off( "touchmove")
     })
-    },20)
+    },50)
 
 
 }
