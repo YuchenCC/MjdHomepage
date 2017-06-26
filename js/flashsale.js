@@ -34,49 +34,50 @@ function countdown($time, $countdown) {
             $li.appendTo($killList)
             //console.log($li)        
         })
-       let $liLast = $(`<li><a href=""><div class="showall"><span>查看全部</span></div></a></li>`)               
-       $liLast.appendTo($killList)
-    })
+        let $liLast = $(`<li><a href=""><div class="showall"><span>查看全部</span></div></a></li>`)
+        $liLast.appendTo($killList)
+    }).done(killSlides())
 }()
 
-+function(){
-    
-        
-        let $killList = $('.showlist>ul')
-        $killList.on('touchstart','li',function (e) {
+function killSlides() {
+    let $killList = $('.showlist>ul')
+    $killList.on('touchstart', 'li', function (e) {
+        e.preventDefault()
+        let width = $killList.children().eq(0).width()
+        let ulWidth = width * 21
+        let touchMaxwidth = width * -17
+        //console.log(ulWidth)
+        $killList.width(`${ulWidth}px`)
+        console.log($killList.width())
+        let touchStartX = e.touches[0].pageX
+        console.log(e)
+        $killList.on('touchmove', 'li', function (e) {
             e.preventDefault()
-            let touchStartX = e.touches[0].pageX
-            console.log(e.currentTarget)
-            $killList.on('touchmove','li', function (e) {
-                e.preventDefault()
-                let touchEndX = e.touches[0].pageX
-                let initPosition = 0
-                $killList.css('transition', `0.5 all`)
-                //let change =  touchEndX - touchStartX
-                let kill = $killList.css('transform')
-                let regex = new RegExp("matrix\\(\\s*\\d*,\\s*\\d*,\\s*\\d*,\\s*\\d*,\\s*(.+),.*", "g");
-                if ((match = regex.exec(kill)) != null) {
-                    initPosition = match[1]
-                    //console.log(match[1])
-
-                }
-                //console.log(`positon is ${initPosition}`)
-                //console.log(`touchStartX is ${touchStartX}`)
-                //console.log(`touchEndX is ${touchEndX}`)
-                //console.log(typeof parseInt(initPosition) )
-                let maxwidth = $('.showlist>ul>li').eq(0).width() * -17
-                console.log(maxwidth)
-                let movePosition = (touchEndX - touchStartX)*5
-                if (movePosition*movePosition < 100)
-                { movePosition = 0 }
-                change = movePosition + parseInt(initPosition)
-                if (change < maxwidth ) { change = maxwidth  }
-                if (change > 0) { change = 0 }
-                //console.log(change1)
-                $killList.css('transform', `translateX(${change}px)`)
-            })
+            let touchEndX = e.touches[0].pageX
+            let initPosition = 0
+            $killList.css('transition', `0.5 all`)
+            //let change =  touchEndX - touchStartX
+            let kill = $killList.css('transform')
+            let regex = new RegExp("matrix\\(\\s*\\d*,\\s*\\d*,\\s*\\d*,\\s*\\d*,\\s*(.+),.*", "g");
+            if ((match = regex.exec(kill)) != null) {
+                initPosition = match[1]
+                //console.log(match[1]
+            }
+            //console.log(`positon is ${initPosition}`)
+            //console.log(`touchStartX is ${touchStartX}`)
+            //console.log(`touchEndX is ${touchEndX}`)
+            //console.log(typeof parseInt(initPosition) )
+            let movePosition = (touchEndX - touchStartX) * 5
+            if (movePosition * movePosition < 100)
+            { movePosition = 0 }
+            change = movePosition + parseInt(initPosition)
+            if (change < touchMaxwidth) { change = touchMaxwidth }
+            if (change > 0) { change = 0 }
+            //console.log(change1)
+            $killList.css('transform', `translateX(${change}px)`)
         })
-    
-}()
+    })
+
+}
 
 
