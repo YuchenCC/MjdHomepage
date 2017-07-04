@@ -1,10 +1,10 @@
-require(['jquery.min'], function (jquery) {
+requirejs(['jquery.min'], function (jquery) {
     console.log('loading jQuery success')
-    require(['banner'], function (banner) {
+    requirejs(['banner'], function (banner) {
         console.log('loading banner success')
-        require(['flashsale'], function (flashsale) {
+        requirejs(['flashsale'], function (flashsale) {
             console.log('flashsale success')
-        
+            console.log('gulp')
     })
     })
 })

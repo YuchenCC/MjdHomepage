@@ -4,3 +4,5 @@ node_modules/
 style.scss
 package-lock.json
 .vscode/
+build/
+

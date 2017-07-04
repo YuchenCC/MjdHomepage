@@ -24,13 +24,13 @@ function countdown($time, $countdown) {
 
     $.get('json\\kill.json', function (response, request) {
         response.map((object) => {
-            $li = $('<li></li>')
-            $div = $('<div></div>')
-            $img = $('<img></img>').attr('src', object.url).appendTo($div)
+            let $li = $('<li></li>')
+            let $div = $('<div></div>')
+            let $img = $('<img></img>').attr('src', object.url).appendTo($div)
             $div.appendTo($li)
-            $pAfter = $(`<p><span>￥</span>${object.priceAfter}</p>`).addClass('priceAfter').appendTo($li)
-            $span = $('<span></span>').text(object.priceBefore)
-            $pBefore = $('<p></p>').addClass('priceBefore').append($span).appendTo($li)
+            let $pAfter = $(`<p><span>￥</span>${object.priceAfter}</p>`).addClass('priceAfter').appendTo($li)
+            let $span = $('<span></span>').text(object.priceBefore)
+            let $pBefore = $('<p></p>').addClass('priceBefore').append($span).appendTo($li)
             $li.appendTo($killList)
             //console.log($li)        
         })
